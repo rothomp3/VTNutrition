@@ -24,6 +24,9 @@
 		E1ADA4E517038E7D00278BBF /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1ADA4E417038E7D00278BBF /* second@2x.png */; };
 		E1ADA4E817038E7E00278BBF /* VTNFirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1ADA4E617038E7E00278BBF /* VTNFirstViewController.xib */; };
 		E1ADA4EB17038E7E00278BBF /* VTNSecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1ADA4E917038E7E00278BBF /* VTNSecondViewController.xib */; };
+		E1ADA4F2170392B000278BBF /* VTNutritionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1ADA4F1170392B000278BBF /* VTNutritionView.xib */; };
+		E1ADA4F5170393B900278BBF /* VTNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA4F4170393B900278BBF /* VTNViewController.m */; };
+		E1ADA4F81703945F00278BBF /* VTNFood.m in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA4F71703945F00278BBF /* VTNFood.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,11 @@
 		E1ADA4E417038E7D00278BBF /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		E1ADA4E717038E7E00278BBF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/VTNFirstViewController.xib; sourceTree = "<group>"; };
 		E1ADA4EA17038E7E00278BBF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/VTNSecondViewController.xib; sourceTree = "<group>"; };
+		E1ADA4F1170392B000278BBF /* VTNutritionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTNutritionView.xib; sourceTree = "<group>"; };
+		E1ADA4F3170393B900278BBF /* VTNViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTNViewController.h; sourceTree = "<group>"; };
+		E1ADA4F4170393B900278BBF /* VTNViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTNViewController.m; sourceTree = "<group>"; };
+		E1ADA4F61703945F00278BBF /* VTNFood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTNFood.h; sourceTree = "<group>"; };
+		E1ADA4F71703945F00278BBF /* VTNFood.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTNFood.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,9 +112,14 @@
 				E1ADA4DD17038E7D00278BBF /* first@2x.png */,
 				E1ADA4DF17038E7D00278BBF /* VTNSecondViewController.h */,
 				E1ADA4E017038E7D00278BBF /* VTNSecondViewController.m */,
+				E1ADA4F3170393B900278BBF /* VTNViewController.h */,
+				E1ADA4F61703945F00278BBF /* VTNFood.h */,
+				E1ADA4F71703945F00278BBF /* VTNFood.m */,
+				E1ADA4F4170393B900278BBF /* VTNViewController.m */,
 				E1ADA4E217038E7D00278BBF /* second.png */,
 				E1ADA4E417038E7D00278BBF /* second@2x.png */,
 				E1ADA4E617038E7E00278BBF /* VTNFirstViewController.xib */,
+				E1ADA4F1170392B000278BBF /* VTNutritionView.xib */,
 				E1ADA4E917038E7E00278BBF /* VTNSecondViewController.xib */,
 				E1ADA4C717038E7D00278BBF /* Supporting Files */,
 			);
@@ -189,6 +202,7 @@
 				E1ADA4E517038E7D00278BBF /* second@2x.png in Resources */,
 				E1ADA4E817038E7E00278BBF /* VTNFirstViewController.xib in Resources */,
 				E1ADA4EB17038E7E00278BBF /* VTNSecondViewController.xib in Resources */,
+				E1ADA4F2170392B000278BBF /* VTNutritionView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +217,8 @@
 				E1ADA4D117038E7D00278BBF /* VTNAppDelegate.m in Sources */,
 				E1ADA4DA17038E7D00278BBF /* VTNFirstViewController.m in Sources */,
 				E1ADA4E117038E7D00278BBF /* VTNSecondViewController.m in Sources */,
+				E1ADA4F5170393B900278BBF /* VTNViewController.m in Sources */,
+				E1ADA4F81703945F00278BBF /* VTNFood.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +349,7 @@
 				E1ADA4F017038E7E00278BBF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
