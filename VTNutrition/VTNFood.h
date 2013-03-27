@@ -9,5 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @interface VTNFood : NSObject
+@property (strong, nonatomic) NSString* foodName;
+@property (nonatomic) int calories;
+@property (nonatomic) int fatCalories;
+@property (nonatomic) int servingSize;
 
+- (id)initWithName:(NSString*)name calories:(int)cal fatCalories:(int)fatcal servingSize:(int)size;
+- (id)initWithName:(NSString *)name;
 @end

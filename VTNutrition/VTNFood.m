@@ -9,5 +9,22 @@
 #import "VTNFood.h"
 
 @implementation VTNFood
+- (id)initWithName:(NSString *)name calories:(int)cal fatCalories:(int)fatcal servingSize:(int)size
+{
+    self = [super init];
+    if (self)
+    {
+        self.foodName = name;
+        self.calories = cal;
+        self.fatCalories = fatcal;
+        self.servingSize = size;
+    }
+    
+    return self;
+}
 
+- (id)initWithName:(NSString *)name
+{
+    return [self initWithName:name calories:0 fatCalories:0 servingSize:0];
+}
 @end
