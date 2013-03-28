@@ -27,4 +27,9 @@
 {
     return [self initWithName:name calories:0 fatCalories:0 servingSize:0];
 }
+
+- (NSString*)description
+{
+    return self.foodName;
+}
 @end

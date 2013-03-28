@@ -27,6 +27,8 @@
 		E1ADA4F2170392B000278BBF /* VTNutritionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1ADA4F1170392B000278BBF /* VTNutritionView.xib */; };
 		E1ADA4F5170393B900278BBF /* VTNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA4F4170393B900278BBF /* VTNViewController.m */; };
 		E1ADA4F81703945F00278BBF /* VTNFood.m in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA4F71703945F00278BBF /* VTNFood.m */; };
+		E1ADA4FB1703A00400278BBF /* VTNWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA4FA1703A00400278BBF /* VTNWebViewController.m */; };
+		E1ADA4FD1703A02500278BBF /* VTNWebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1ADA4FC1703A02500278BBF /* VTNWebView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +60,9 @@
 		E1ADA4F4170393B900278BBF /* VTNViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTNViewController.m; sourceTree = "<group>"; };
 		E1ADA4F61703945F00278BBF /* VTNFood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTNFood.h; sourceTree = "<group>"; };
 		E1ADA4F71703945F00278BBF /* VTNFood.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTNFood.m; sourceTree = "<group>"; };
+		E1ADA4F91703A00400278BBF /* VTNWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTNWebViewController.h; sourceTree = "<group>"; };
+		E1ADA4FA1703A00400278BBF /* VTNWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTNWebViewController.m; sourceTree = "<group>"; };
+		E1ADA4FC1703A02500278BBF /* VTNWebView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VTNWebView.xib; path = ../VTNWebView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +109,9 @@
 		E1ADA4C617038E7D00278BBF /* VTNutrition */ = {
 			isa = PBXGroup;
 			children = (
+				E1ADA4FC1703A02500278BBF /* VTNWebView.xib */,
+				E1ADA4F91703A00400278BBF /* VTNWebViewController.h */,
+				E1ADA4FA1703A00400278BBF /* VTNWebViewController.m */,
 				E1ADA4CF17038E7D00278BBF /* VTNAppDelegate.h */,
 				E1ADA4D017038E7D00278BBF /* VTNAppDelegate.m */,
 				E1ADA4D817038E7D00278BBF /* VTNFirstViewController.h */,
@@ -203,6 +211,7 @@
 				E1ADA4E817038E7E00278BBF /* VTNFirstViewController.xib in Resources */,
 				E1ADA4EB17038E7E00278BBF /* VTNSecondViewController.xib in Resources */,
 				E1ADA4F2170392B000278BBF /* VTNutritionView.xib in Resources */,
+				E1ADA4FD1703A02500278BBF /* VTNWebView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +228,7 @@
 				E1ADA4E117038E7D00278BBF /* VTNSecondViewController.m in Sources */,
 				E1ADA4F5170393B900278BBF /* VTNViewController.m in Sources */,
 				E1ADA4F81703945F00278BBF /* VTNFood.m in Sources */,
+				E1ADA4FB1703A00400278BBF /* VTNWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +324,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VTNutrition/VTNutrition-Prefix.pch";
 				INFOPLIST_FILE = "VTNutrition/VTNutrition-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -325,6 +336,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VTNutrition/VTNutrition-Prefix.pch";
 				INFOPLIST_FILE = "VTNutrition/VTNutrition-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

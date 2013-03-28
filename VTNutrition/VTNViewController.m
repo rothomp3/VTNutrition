@@ -7,6 +7,8 @@
 //
 
 #import "VTNViewController.h"
+#import "VTNFood.h"
+#import "VTNWebViewController.h"
 
 @interface VTNViewController ()
 
@@ -14,11 +16,18 @@
 
 @implementation VTNViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (IBAction)loadWeb:(UIButton *)sender {
+    VTNWebViewController* wvc = [[VTNWebViewController alloc] initWithNibName:@"VTNWebView" bundle:nil];
+    wvc.url = [NSURL URLWithString:@"http://foodpro.studentprograms.vt.edu/FoodPro_2.3/location.asp"];
+    
+    [self.navigationController pushViewController:wvc animated:YES];
+}
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil food:(VTNFood*)food
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.food = food;
     }
     return self;
 }
@@ -27,6 +36,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.foodNameLabel.text = self.food.foodName;
+    self.caloriesLabel.text = [NSString stringWithFormat:@"%d", self.food.calories];
+    self.fatCaloriesLabel.text = [NSString stringWithFormat:@"%d", self.food.fatCalories];
+    self.servingSizeLabel.text = [NSString stringWithFormat:@"%d", self.food.servingSize];
+    
 }
 
 - (void)didReceiveMemoryWarning

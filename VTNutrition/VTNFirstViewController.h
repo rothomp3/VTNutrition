@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VTNFirstViewController : UIViewController
+@interface VTNFirstViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *foodTable;
 
+@property (strong, nonatomic) NSMutableArray* foodArray;
 @end

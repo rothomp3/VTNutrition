@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class VTNFood;
 
 @interface VTNViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *foodNameLabel;
@@ -14,5 +15,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *fatCaloriesLabel;
 @property (weak, nonatomic) IBOutlet UILabel *servingSizeLabel;
 
+@property (weak, nonatomic) VTNFood* food;
+- (IBAction)loadWeb:(UIButton *)sender;
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil food:(VTNFood*)food;
 @end
