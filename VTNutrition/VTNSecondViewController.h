@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VTNSStringParsingExtensions.h"
 
 @interface VTNSecondViewController : UIViewController
+- (IBAction)parseFile:(UIButton *)sender;
 
 @end

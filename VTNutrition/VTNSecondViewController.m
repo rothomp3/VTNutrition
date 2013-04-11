@@ -36,4 +36,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)parseFile:(UIButton *)sender {
+    NSURL *csvURL = [[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject]  URLByAppendingPathComponent:@"WestEnd.csv"];
+    NSString* csvString = [NSString stringWithContentsOfURL:csvURL encoding:NSUTF8StringEncoding error:nil];
+    NSArray* westEndFoodArray = [csvString csvRows];
+    
+    for (NSArray* i in westEndFoodArray)
+    {
+        int calories = [i[2] intValue];
+        NSString* name = i[1];
+        
+        NSLog(@"The calories in %@ is %d", name, calories);
+    }
+}
 @end

@@ -65,7 +65,7 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     VTNFood* food = foodArray[indexPath.row];
     VTNViewController* foodView = [[VTNViewController alloc] initWithNibName:@"VTNutritionView" bundle:nil food:food];

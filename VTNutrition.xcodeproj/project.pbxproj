@@ -35,6 +35,7 @@
 		E1C37D3E17165B8400BE3D6D /* SubRestaraunt.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C37D3D17165B8400BE3D6D /* SubRestaraunt.m */; };
 		E1C37D4117165B8500BE3D6D /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C37D4017165B8500BE3D6D /* Food.m */; };
 		E1C37D4417165B8500BE3D6D /* DailyFoodList.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C37D4317165B8500BE3D6D /* DailyFoodList.m */; };
+		E1C37D4717165E8F00BE3D6D /* VTNSStringParsingExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C37D4617165E8F00BE3D6D /* VTNSStringParsingExtensions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,8 @@
 		E1C37D4017165B8500BE3D6D /* Food.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Food.m; sourceTree = "<group>"; };
 		E1C37D4217165B8500BE3D6D /* DailyFoodList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyFoodList.h; sourceTree = "<group>"; };
 		E1C37D4317165B8500BE3D6D /* DailyFoodList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyFoodList.m; sourceTree = "<group>"; };
+		E1C37D4517165E8F00BE3D6D /* VTNSStringParsingExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTNSStringParsingExtensions.h; sourceTree = "<group>"; };
+		E1C37D4617165E8F00BE3D6D /* VTNSStringParsingExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTNSStringParsingExtensions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +144,8 @@
 				E1ADA4FA1703A00400278BBF /* VTNWebViewController.m */,
 				E1ADA4CF17038E7D00278BBF /* VTNAppDelegate.h */,
 				E1ADA4D017038E7D00278BBF /* VTNAppDelegate.m */,
+				E1C37D4517165E8F00BE3D6D /* VTNSStringParsingExtensions.h */,
+				E1C37D4617165E8F00BE3D6D /* VTNSStringParsingExtensions.m */,
 				E1ADA4D817038E7D00278BBF /* VTNFirstViewController.h */,
 				E1ADA4D917038E7D00278BBF /* VTNFirstViewController.m */,
 				E1ADA4DB17038E7D00278BBF /* first.png */,
@@ -261,6 +266,7 @@
 				E1C37D3E17165B8400BE3D6D /* SubRestaraunt.m in Sources */,
 				E1C37D4117165B8500BE3D6D /* Food.m in Sources */,
 				E1C37D4417165B8500BE3D6D /* DailyFoodList.m in Sources */,
+				E1C37D4717165E8F00BE3D6D /* VTNSStringParsingExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
