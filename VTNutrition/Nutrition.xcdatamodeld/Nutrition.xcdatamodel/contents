@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12D78" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="DailyFoodList" syncable="YES">
+        <attribute name="totalCalories" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="foods" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Food" inverseName="foodLists" inverseEntity="Food" syncable="YES"/>
+    </entity>
     <entity name="DiningHall" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -9,6 +13,7 @@
         <attribute name="calories" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="foodLists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DailyFoodList" inverseName="foods" inverseEntity="DailyFoodList" syncable="YES"/>
         <relationship name="subRestaraunt" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="SubRestaraunt" inverseName="foods" inverseEntity="SubRestaraunt" syncable="YES"/>
     </entity>
     <entity name="SubRestaraunt" syncable="YES">
@@ -19,6 +24,7 @@
     <elements>
         <element name="DiningHall" positionX="-14877" positionY="-14787" width="128" height="88"/>
         <element name="SubRestaraunt" positionX="-14679" positionY="-14679" width="128" height="88"/>
-        <element name="Food" positionX="-14463" positionY="-14634" width="126" height="103"/>
+        <element name="Food" positionX="-14463" positionY="-14634" width="126" height="118"/>
+        <element name="DailyFoodList" positionX="-14553" positionY="-14832" width="128" height="73"/>
     </elements>
 </model>
