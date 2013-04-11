@@ -6,18 +6,18 @@
     </entity>
     <entity name="DiningHall" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="subRestaraunts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SubRestaraunt" inverseName="diningHall" inverseEntity="SubRestaraunt" syncable="YES"/>
     </entity>
     <entity name="Food" syncable="YES">
         <attribute name="calories" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="foodLists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DailyFoodList" inverseName="foods" inverseEntity="DailyFoodList" syncable="YES"/>
         <relationship name="subRestaraunt" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="SubRestaraunt" inverseName="foods" inverseEntity="SubRestaraunt" syncable="YES"/>
     </entity>
     <entity name="SubRestaraunt" syncable="YES">
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="diningHall" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="DiningHall" inverseName="subRestaraunts" inverseEntity="DiningHall" syncable="YES"/>
         <relationship name="foods" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Food" inverseName="subRestaraunt" inverseEntity="Food" syncable="YES"/>
     </entity>
