@@ -30,6 +30,7 @@
 		E1ADA4F81703945F00278BBF /* VTNFood.m in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA4F71703945F00278BBF /* VTNFood.m */; };
 		E1ADA4FB1703A00400278BBF /* VTNWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA4FA1703A00400278BBF /* VTNWebViewController.m */; };
 		E1C37D331716566900BE3D6D /* Nutrition.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1C37D311716566800BE3D6D /* Nutrition.xcdatamodeld */; };
+		E1C37D35171659EC00BE3D6D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1C37D34171659EC00BE3D6D /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		E1ADA4F91703A00400278BBF /* VTNWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTNWebViewController.h; sourceTree = "<group>"; };
 		E1ADA4FA1703A00400278BBF /* VTNWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTNWebViewController.m; sourceTree = "<group>"; };
 		E1C37D321716566900BE3D6D /* Nutrition.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Nutrition.xcdatamodel; sourceTree = "<group>"; };
+		E1C37D34171659EC00BE3D6D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1C37D35171659EC00BE3D6D /* CoreData.framework in Frameworks */,
 				E1ADA4C117038E7D00278BBF /* UIKit.framework in Frameworks */,
 				E1ADA4C317038E7D00278BBF /* Foundation.framework in Frameworks */,
 				E1ADA4C517038E7D00278BBF /* CoreGraphics.framework in Frameworks */,
@@ -101,6 +104,7 @@
 		E1ADA4BF17038E7D00278BBF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E1C37D34171659EC00BE3D6D /* CoreData.framework */,
 				E1ADA4C017038E7D00278BBF /* UIKit.framework */,
 				E1ADA4C217038E7D00278BBF /* Foundation.framework */,
 				E1ADA4C417038E7D00278BBF /* CoreGraphics.framework */,
