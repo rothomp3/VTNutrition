@@ -21,12 +21,15 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    UIViewController *viewController1 = [[VTNFirstViewController alloc] initWithNibName:@"VTNFirstViewController" bundle:nil];
-    UIViewController *viewController2 = [[VTNSecondViewController alloc] initWithNibName:@"VTNSecondViewController" bundle:nil];
+    VTNFirstViewController *viewController1 = [[VTNFirstViewController alloc] initWithNibName:@"VTNFirstViewController" bundle:nil];
+    VTNSecondViewController *viewController2 = [[VTNSecondViewController alloc] initWithNibName:@"VTNSecondViewController" bundle:nil];
     UINavigationController* navControl = [[UINavigationController alloc] initWithRootViewController:viewController1];
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.viewControllers = @[navControl, viewController2];
     self.window.rootViewController = self.tabBarController;
+    viewController1.managedObjectContext = self.managedObjectContext;
+    viewController2.managedObjectContext = self.managedObjectContext;
+    viewController1.currentLevel = 0;
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -111,7 +114,7 @@
     if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"VTNutrition" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Nutrition" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return _managedObjectModel;
 }
@@ -124,11 +127,11 @@
         return _persistentStoreCoordinator;
     }
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"VTNutrition.sqlite"];
+    NSURL *storeURL = [[NSBundle mainBundle] URLForResource:@"VTNutrition" withExtension:@"sqlite"];
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:@{NSReadOnlyPersistentStoreOption:@YES, NSSQLiteAnalyzeOption:@YES} error:&error]) {
         /*
          Replace this implementation with code to handle the error appropriately.
          

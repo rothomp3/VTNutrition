@@ -7,8 +7,10 @@
 //
 
 #import "VTNViewController.h"
-#import "VTNFood.h"
+#import "Food.h"
 #import "VTNWebViewController.h"
+#import "SubRestaraunt.h"
+#import "DiningHall.h"
 
 @interface VTNViewController ()
 
@@ -18,12 +20,12 @@
 
 - (IBAction)loadWeb:(UIButton *)sender {
     VTNWebViewController* wvc = [[VTNWebViewController alloc] initWithNibName:@"VTNWebView" bundle:nil];
-    wvc.url = [NSURL URLWithString:@"http://foodpro.studentprograms.vt.edu/FoodPro_2.3/location.asp"];
+    wvc.url = [NSURL URLWithString:self.food.url];
     
     [self.navigationController pushViewController:wvc animated:YES];
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil food:(VTNFood*)food
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil food:(Food*)food
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -32,15 +34,35 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    self.foodNameLabel.text = self.food.foodName;
-    self.caloriesLabel.text = [NSString stringWithFormat:@"%d", self.food.calories];
-    self.fatCaloriesLabel.text = [NSString stringWithFormat:@"%d", self.food.fatCalories];
-    self.servingSizeLabel.text = [NSString stringWithFormat:@"%d", self.food.servingSize];
+- (IBAction)getDHInfo:(UIButton *)sender {
+    NSMutableString* list = [[NSMutableString alloc] init];
+    for (SubRestaraunt* i in self.food.subRestaraunt.diningHall.subRestaraunts)
+    {
+        [list appendString:i.name];
+        [list appendString:@" and "];
+    }
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:self.food.subRestaraunt.diningHall.name message:list delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     
+    [alert show];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    self.foodNameLabel.text = [self.food name];
+    self.caloriesLabel.text = [[self.food calories] stringValue];
+    self.subRestLabel.text = self.food.subRestaraunt.name;
+    self.diningHallLabel.text = self.food.subRestaraunt.diningHall.name;
+    
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    self.foodNameLabel.text = nil;
+    self.caloriesLabel.text = nil;
+    self.subRestLabel.text = nil;
+    self.diningHallLabel.text = nil;
 }
 
 - (void)didReceiveMemoryWarning

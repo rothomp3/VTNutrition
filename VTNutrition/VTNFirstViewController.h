@@ -7,9 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface VTNFirstViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+#import "VTNViewController.h"
+@class DiningHall;
+@class SubRestaraunt;
+@interface VTNFirstViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UISearchDisplayDelegate, UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *foodTable;
 
+@property (strong, nonatomic) VTNViewController* detailViewController;
+
 @property (strong, nonatomic) NSMutableArray* foodArray;
+
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSFetchedResultsController *searchResultsController;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
+@property (nonatomic) int currentLevel;
+@property (weak, nonatomic) DiningHall* diningHall;
+@property (weak, nonatomic) SubRestaraunt* subRest;
+
+@property (strong, nonatomic) NSString* oldTitle;
 @end

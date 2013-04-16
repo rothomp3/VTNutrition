@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "VTNSStringParsingExtensions.h"
 
-@interface VTNSecondViewController : UIViewController
+@interface VTNSecondViewController : UIViewController <NSFetchedResultsControllerDelegate, UIAlertViewDelegate>
 - (IBAction)parseFile:(UIButton *)sender;
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @end
