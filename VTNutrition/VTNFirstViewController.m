@@ -8,9 +8,10 @@
 
 #import "VTNFirstViewController.h"
 #import "Food.h"
-#import "VTNViewController.h"
 #import "DiningHall.h"
 #import "SubRestaraunt.h"
+#import "VTNWebViewController.h"
+
 
 @interface VTNFirstViewController ()
 
@@ -188,7 +189,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (!self.detailViewController) {
-        self.detailViewController = [[VTNViewController alloc] initWithNibName:@"VTNutritionView" bundle:nil];
+        self.detailViewController = [[VTNWebViewController alloc] initWithNibName:@"VTNWebView" bundle:nil];
     }
     if (tableView == self.foodTable)
     {
@@ -212,7 +213,7 @@
                 break;
             case 2:
                 food = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-                self.detailViewController.food = food;
+                [self.detailViewController setFood:food];
                 [self.navigationController pushViewController:self.detailViewController animated:YES];
                 break;
             default:

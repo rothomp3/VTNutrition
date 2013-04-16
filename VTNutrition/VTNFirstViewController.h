@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "VTNViewController.h"
+
 @class DiningHall;
 @class SubRestaraunt;
+@class VTNWebViewController;
 @interface VTNFirstViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UISearchDisplayDelegate, UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *foodTable;
 
-@property (strong, nonatomic) VTNViewController* detailViewController;
+@property (strong, nonatomic) VTNWebViewController* detailViewController;
 
 @property (strong, nonatomic) NSMutableArray* foodArray;
 

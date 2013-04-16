@@ -7,6 +7,7 @@
 //
 
 #import "VTNWebViewController.h"
+#import "Food.h"
 
 @interface VTNWebViewController ()
 
@@ -26,7 +27,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     NSURLRequest* request = [NSURLRequest requestWithURL:self.url];
     [self.webView loadRequest:request];
 }
@@ -37,4 +42,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)addToDaily:(UIButton *)sender {
+}
+
+- (void)setFood:(Food *)food
+{
+    _food = food;
+    self.url = [NSURL URLWithString:self.food.url];
+}
 @end

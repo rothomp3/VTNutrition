@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class Food;
+@class DailyFoodList;
+@class SubRestaraunt;
+@class DiningHall;
+
 @interface VTNWebViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (strong, nonatomic) NSURL* url;
+@property (strong, nonatomic) Food* food;
+@property (strong, nonatomic) DailyFoodList* foodList;
+- (IBAction)addToDaily:(UIButton *)sender;
 @end

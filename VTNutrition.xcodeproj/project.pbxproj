@@ -26,8 +26,6 @@
 		E1ADA4E517038E7D00278BBF /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1ADA4E417038E7D00278BBF /* second@2x.png */; };
 		E1ADA4E817038E7E00278BBF /* VTNFirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1ADA4E617038E7E00278BBF /* VTNFirstViewController.xib */; };
 		E1ADA4EB17038E7E00278BBF /* VTNSecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1ADA4E917038E7E00278BBF /* VTNSecondViewController.xib */; };
-		E1ADA4F2170392B000278BBF /* VTNutritionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1ADA4F1170392B000278BBF /* VTNutritionView.xib */; };
-		E1ADA4F5170393B900278BBF /* VTNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA4F4170393B900278BBF /* VTNViewController.m */; };
 		E1ADA4FB1703A00400278BBF /* VTNWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA4FA1703A00400278BBF /* VTNWebViewController.m */; };
 		E1C37D331716566900BE3D6D /* Nutrition.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1C37D311716566800BE3D6D /* Nutrition.xcdatamodeld */; };
 		E1C37D35171659EC00BE3D6D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1C37D34171659EC00BE3D6D /* CoreData.framework */; };
@@ -64,9 +62,6 @@
 		E1ADA4E417038E7D00278BBF /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		E1ADA4E717038E7E00278BBF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/VTNFirstViewController.xib; sourceTree = "<group>"; };
 		E1ADA4EA17038E7E00278BBF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/VTNSecondViewController.xib; sourceTree = "<group>"; };
-		E1ADA4F1170392B000278BBF /* VTNutritionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTNutritionView.xib; sourceTree = "<group>"; };
-		E1ADA4F3170393B900278BBF /* VTNViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTNViewController.h; sourceTree = "<group>"; };
-		E1ADA4F4170393B900278BBF /* VTNViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTNViewController.m; sourceTree = "<group>"; };
 		E1ADA4F91703A00400278BBF /* VTNWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTNWebViewController.h; sourceTree = "<group>"; };
 		E1ADA4FA1703A00400278BBF /* VTNWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTNWebViewController.m; sourceTree = "<group>"; };
 		E1C37D321716566900BE3D6D /* Nutrition.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Nutrition.xcdatamodel; sourceTree = "<group>"; };
@@ -138,7 +133,6 @@
 				E1C37D3D17165B8400BE3D6D /* SubRestaraunt.m */,
 				E1C37D3917165B8400BE3D6D /* DiningHall.h */,
 				E1C37D3A17165B8400BE3D6D /* DiningHall.m */,
-				E16FC3411705FF20004D3C6D /* VTNWebView.xib */,
 				E1ADA4F91703A00400278BBF /* VTNWebViewController.h */,
 				E1ADA4FA1703A00400278BBF /* VTNWebViewController.m */,
 				E1ADA4CF17038E7D00278BBF /* VTNAppDelegate.h */,
@@ -151,13 +145,11 @@
 				E1ADA4DD17038E7D00278BBF /* first@2x.png */,
 				E1ADA4DF17038E7D00278BBF /* VTNSecondViewController.h */,
 				E1ADA4E017038E7D00278BBF /* VTNSecondViewController.m */,
-				E1ADA4F3170393B900278BBF /* VTNViewController.h */,
-				E1ADA4F4170393B900278BBF /* VTNViewController.m */,
 				E1ADA4E217038E7D00278BBF /* second.png */,
 				E1ADA4E417038E7D00278BBF /* second@2x.png */,
 				E1ADA4E617038E7E00278BBF /* VTNFirstViewController.xib */,
-				E1ADA4F1170392B000278BBF /* VTNutritionView.xib */,
 				E1ADA4E917038E7E00278BBF /* VTNSecondViewController.xib */,
+				E16FC3411705FF20004D3C6D /* VTNWebView.xib */,
 				E1ABF6A8171D02F80074436E /* VTNutrition.sqlite */,
 				E1ADA4C717038E7D00278BBF /* Supporting Files */,
 			);
@@ -240,7 +232,6 @@
 				E1ADA4E517038E7D00278BBF /* second@2x.png in Resources */,
 				E1ADA4E817038E7E00278BBF /* VTNFirstViewController.xib in Resources */,
 				E1ADA4EB17038E7E00278BBF /* VTNSecondViewController.xib in Resources */,
-				E1ADA4F2170392B000278BBF /* VTNutritionView.xib in Resources */,
 				E16FC3421705FF20004D3C6D /* VTNWebView.xib in Resources */,
 				E1ABF6A9171D02F80074436E /* VTNutrition.sqlite in Resources */,
 			);
@@ -257,7 +248,6 @@
 				E1ADA4D117038E7D00278BBF /* VTNAppDelegate.m in Sources */,
 				E1ADA4DA17038E7D00278BBF /* VTNFirstViewController.m in Sources */,
 				E1ADA4E117038E7D00278BBF /* VTNSecondViewController.m in Sources */,
-				E1ADA4F5170393B900278BBF /* VTNViewController.m in Sources */,
 				E1ADA4FB1703A00400278BBF /* VTNWebViewController.m in Sources */,
 				E1C37D331716566900BE3D6D /* Nutrition.xcdatamodeld in Sources */,
 				E1C37D3B17165B8400BE3D6D /* DiningHall.m in Sources */,
