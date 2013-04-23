@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E104E20F1727232D00D364E5 /* VTNutrition.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E104E20E1727232D00D364E5 /* VTNutrition.sqlite */; };
 		E16FC3421705FF20004D3C6D /* VTNWebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16FC3411705FF20004D3C6D /* VTNWebView.xib */; };
 		E1905E43171DC32E00507DBB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1905E42171DC32E00507DBB /* Default@2x.png */; };
 		E1905E47171DC34000507DBB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E1905E46171DC34000507DBB /* Default.png */; };
 		E1905E49171DC36200507DBB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1905E48171DC36200507DBB /* Default-568h@2x.png */; };
 		E1905E4B171DC52400507DBB /* VTNutrition icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E1905E4A171DC52400507DBB /* VTNutrition icon.png */; };
 		E1905E4D171DC55B00507DBB /* VTNutrition icon@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1905E4C171DC55B00507DBB /* VTNutrition icon@1x.png */; };
-		E1ABF6A9171D02F80074436E /* VTNutrition.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E1ABF6A8171D02F80074436E /* VTNutrition.sqlite */; };
 		E1ADA4C117038E7D00278BBF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1ADA4C017038E7D00278BBF /* UIKit.framework */; };
 		E1ADA4C317038E7D00278BBF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1ADA4C217038E7D00278BBF /* Foundation.framework */; };
 		E1ADA4C517038E7D00278BBF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1ADA4C417038E7D00278BBF /* CoreGraphics.framework */; };
@@ -39,13 +39,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E104E20E1727232D00D364E5 /* VTNutrition.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = VTNutrition.sqlite; sourceTree = "<group>"; };
 		E16FC3411705FF20004D3C6D /* VTNWebView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTNWebView.xib; sourceTree = "<group>"; };
 		E1905E42171DC32E00507DBB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		E1905E46171DC34000507DBB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		E1905E48171DC36200507DBB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		E1905E4A171DC52400507DBB /* VTNutrition icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VTNutrition icon.png"; sourceTree = SOURCE_ROOT; };
 		E1905E4C171DC55B00507DBB /* VTNutrition icon@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VTNutrition icon@1x.png"; sourceTree = SOURCE_ROOT; };
-		E1ABF6A8171D02F80074436E /* VTNutrition.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = VTNutrition.sqlite; sourceTree = "<group>"; };
 		E1ADA4BD17038E7D00278BBF /* VTNutrition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VTNutrition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1ADA4C017038E7D00278BBF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E1ADA4C217038E7D00278BBF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -128,6 +128,7 @@
 		E1ADA4C617038E7D00278BBF /* VTNutrition */ = {
 			isa = PBXGroup;
 			children = (
+				E104E20E1727232D00D364E5 /* VTNutrition.sqlite */,
 				E1C37D311716566800BE3D6D /* Nutrition.xcdatamodeld */,
 				E1C37D4217165B8500BE3D6D /* DailyFoodList.h */,
 				E1C37D4317165B8500BE3D6D /* DailyFoodList.m */,
@@ -154,7 +155,6 @@
 				E1ADA4E617038E7E00278BBF /* VTNFirstViewController.xib */,
 				E1ADA4E917038E7E00278BBF /* VTNSecondViewController.xib */,
 				E16FC3411705FF20004D3C6D /* VTNWebView.xib */,
-				E1ABF6A8171D02F80074436E /* VTNutrition.sqlite */,
 				E1ADA4C717038E7D00278BBF /* Supporting Files */,
 			);
 			path = VTNutrition;
@@ -236,12 +236,12 @@
 				E1ADA4E817038E7E00278BBF /* VTNFirstViewController.xib in Resources */,
 				E1ADA4EB17038E7E00278BBF /* VTNSecondViewController.xib in Resources */,
 				E16FC3421705FF20004D3C6D /* VTNWebView.xib in Resources */,
-				E1ABF6A9171D02F80074436E /* VTNutrition.sqlite in Resources */,
 				E1905E43171DC32E00507DBB /* Default@2x.png in Resources */,
 				E1905E47171DC34000507DBB /* Default.png in Resources */,
 				E1905E49171DC36200507DBB /* Default-568h@2x.png in Resources */,
 				E1905E4B171DC52400507DBB /* VTNutrition icon.png in Resources */,
 				E1905E4D171DC55B00507DBB /* VTNutrition icon@1x.png in Resources */,
+				E104E20F1727232D00D364E5 /* VTNutrition.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

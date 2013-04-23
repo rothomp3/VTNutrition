@@ -55,17 +55,51 @@
     NSError *error = nil;
     NSFileManager* manager = [NSFileManager defaultManager];
     NSArray* files = [manager contentsOfDirectoryAtPath:[[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject] path] error:&error];
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Choose File" message:@"Choose a file to parse" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+
     for (NSString *fileName in files)
     {
         if ([[fileName.pathExtension lowercaseString] isEqualToString:@"csv"])
         {
-            [alert addButtonWithTitle:fileName];
-        }
-    }
+            NSURL *csvURL = [[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject]  URLByAppendingPathComponent:fileName];
+            
+            NSString* csvString = [NSString stringWithContentsOfURL:csvURL encoding:NSUTF8StringEncoding error:nil];
+            NSArray* westEndFoodArray = [csvString csvRows];
+            
+            NSManagedObjectContext* context = self.managedObjectContext;
+            NSEntityDescription *diningEntity = [NSEntityDescription entityForName:@"DiningHall" inManagedObjectContext:context];
+            DiningHall* newDiningHall = [NSEntityDescription insertNewObjectForEntityForName:[diningEntity name] inManagedObjectContext:context];
+            newDiningHall.name = [fileName stringByDeletingPathExtension];
+            
+            NSEntityDescription* subDiningEntity = [NSEntityDescription entityForName:@"SubRestaraunt" inManagedObjectContext:context];
+            NSString* subRest = nil;
+            SubRestaraunt* newSubRest;
+            
+            for (NSArray* i in westEndFoodArray)
+            {
+                if ([i count] != 4)
+                    continue;
+                int calories = [i[2] intValue];
+                NSString* name = i[1];
+                if ([name isEqualToString:@"Food"])
+                    continue;
+                NSLog(@"The calories in %@ is %d", name, calories);
+                if (![subRest isEqualToString:i[0]])
+                {
+                    subRest = i[0];
+                    newSubRest = [NSEntityDescription insertNewObjectForEntityForName:[subDiningEntity name] inManagedObjectContext:context];
+                    newSubRest.name = subRest;
+                    newSubRest.diningHall = newDiningHall;
+                }
+                FoodHolder* temp = [[FoodHolder alloc] init];
+                temp.name = name;
+                temp.calories = [NSNumber numberWithInt:calories];
+                temp.url = i[3];
+                temp.subRestaraunt = newSubRest;
+                [self insertNewObject:temp];
+            }                     
 
-    [alert show];
-    
+        }
+    }    
 }
 
 - (void)insertNewObject:(FoodHolder*)sender
@@ -126,47 +160,5 @@
 	}
     
     return _fetchedResultsController;
-}
-
-#pragma mark - UIAlertViewDelegate
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    NSURL *csvURL = [[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject]  URLByAppendingPathComponent:[alertView buttonTitleAtIndex:buttonIndex]];
-    
-    NSString* csvString = [NSString stringWithContentsOfURL:csvURL encoding:NSUTF8StringEncoding error:nil];
-    NSArray* westEndFoodArray = [csvString csvRows];
-    
-    NSManagedObjectContext* context = self.managedObjectContext;
-    NSEntityDescription *diningEntity = [NSEntityDescription entityForName:@"DiningHall" inManagedObjectContext:context];
-    DiningHall* newDiningHall = [NSEntityDescription insertNewObjectForEntityForName:[diningEntity name] inManagedObjectContext:context];
-    newDiningHall.name = [[alertView buttonTitleAtIndex:buttonIndex] stringByDeletingPathExtension];
-    
-    NSEntityDescription* subDiningEntity = [NSEntityDescription entityForName:@"SubRestaraunt" inManagedObjectContext:context];
-    NSString* subRest = nil;
-    SubRestaraunt* newSubRest;
-    
-    for (NSArray* i in westEndFoodArray)
-    {
-        if ([i count] != 4)
-            continue;
-        int calories = [i[2] intValue];
-        NSString* name = i[1];
-        if ([name isEqualToString:@"Food"])
-            continue;
-        NSLog(@"The calories in %@ is %d", name, calories);
-        if (![subRest isEqualToString:i[0]])
-        {
-            subRest = i[0];
-            newSubRest = [NSEntityDescription insertNewObjectForEntityForName:[subDiningEntity name] inManagedObjectContext:context];
-            newSubRest.name = subRest;
-            newSubRest.diningHall = newDiningHall;
-        }
-        FoodHolder* temp = [[FoodHolder alloc] init];
-        temp.name = name;
-        temp.calories = [NSNumber numberWithInt:calories];
-        temp.url = i[3];
-        temp.subRestaraunt = newSubRest;
-        [self insertNewObject:temp];
-    }                     
 }
 @end
