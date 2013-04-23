@@ -27,4 +27,6 @@
 @property (weak, nonatomic) SubRestaraunt* subRest;
 
 @property (strong, nonatomic) NSString* oldTitle;
+
+@property (strong, nonatomic) NSFetchedResultsController* foodListController;
 @end

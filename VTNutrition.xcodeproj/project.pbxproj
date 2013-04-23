@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E104E20F1727232D00D364E5 /* VTNutrition.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E104E20E1727232D00D364E5 /* VTNutrition.sqlite */; };
 		E16FC3421705FF20004D3C6D /* VTNWebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16FC3411705FF20004D3C6D /* VTNWebView.xib */; };
 		E1905E43171DC32E00507DBB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1905E42171DC32E00507DBB /* Default@2x.png */; };
 		E1905E47171DC34000507DBB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E1905E46171DC34000507DBB /* Default.png */; };
@@ -43,10 +42,10 @@
 		E1EC86E31727376700B04376 /* VTNutritionLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = E1EC86E21727376700B04376 /* VTNutritionLogo.png */; };
 		E1EC86E51727377100B04376 /* VTNutritionLogoStandard.png in Resources */ = {isa = PBXBuildFile; fileRef = E1EC86E41727377100B04376 /* VTNutritionLogoStandard.png */; };
 		E1EC86E91727398900B04376 /* magnifying_glass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1EC86E81727398900B04376 /* magnifying_glass@2x.png */; };
+		E1EC86EB1727452B00B04376 /* VTNutrition.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E1EC86EA1727452B00B04376 /* VTNutrition.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E104E20E1727232D00D364E5 /* VTNutrition.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = VTNutrition.sqlite; sourceTree = "<group>"; };
 		E16FC3411705FF20004D3C6D /* VTNWebView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTNWebView.xib; sourceTree = "<group>"; };
 		E1905E42171DC32E00507DBB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		E1905E46171DC34000507DBB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
@@ -94,6 +93,7 @@
 		E1EC86E21727376700B04376 /* VTNutritionLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VTNutritionLogo.png; sourceTree = SOURCE_ROOT; };
 		E1EC86E41727377100B04376 /* VTNutritionLogoStandard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VTNutritionLogoStandard.png; sourceTree = SOURCE_ROOT; };
 		E1EC86E81727398900B04376 /* magnifying_glass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "magnifying_glass@2x.png"; sourceTree = "<group>"; };
+		E1EC86EA1727452B00B04376 /* VTNutrition.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = VTNutrition.sqlite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,7 +142,7 @@
 		E1ADA4C617038E7D00278BBF /* VTNutrition */ = {
 			isa = PBXGroup;
 			children = (
-				E104E20E1727232D00D364E5 /* VTNutrition.sqlite */,
+				E1EC86EA1727452B00B04376 /* VTNutrition.sqlite */,
 				E1EC86E81727398900B04376 /* magnifying_glass@2x.png */,
 				E1C37D311716566800BE3D6D /* Nutrition.xcdatamodeld */,
 				E1C37D4217165B8500BE3D6D /* DailyFoodList.h */,
@@ -262,7 +262,6 @@
 				E1905E49171DC36200507DBB /* Default-568h@2x.png in Resources */,
 				E1905E4B171DC52400507DBB /* VTNutrition icon.png in Resources */,
 				E1905E4D171DC55B00507DBB /* VTNutrition icon@1x.png in Resources */,
-				E104E20F1727232D00D364E5 /* VTNutrition.sqlite in Resources */,
 				E1EC86DC1727375300B04376 /* FoodTabIcon.png in Resources */,
 				E1EC86DD1727375300B04376 /* magnifying_glass.png in Resources */,
 				E1EC86DE1727375300B04376 /* people_.png in Resources */,
@@ -270,6 +269,7 @@
 				E1EC86E31727376700B04376 /* VTNutritionLogo.png in Resources */,
 				E1EC86E51727377100B04376 /* VTNutritionLogoStandard.png in Resources */,
 				E1EC86E91727398900B04376 /* magnifying_glass@2x.png in Resources */,
+				E1EC86EB1727452B00B04376 /* VTNutrition.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

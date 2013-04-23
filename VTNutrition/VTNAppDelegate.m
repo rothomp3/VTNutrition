@@ -24,8 +24,9 @@
     VTNFirstViewController *viewController1 = [[VTNFirstViewController alloc] initWithNibName:@"VTNFirstViewController" bundle:nil];
     VTNSecondViewController *viewController2 = [[VTNSecondViewController alloc] initWithNibName:@"VTNSecondViewController" bundle:nil];
     UINavigationController* navControl = [[UINavigationController alloc] initWithRootViewController:viewController1];
+    UINavigationController* nav2Control = [[UINavigationController alloc] initWithRootViewController:viewController2];
     self.tabBarController = [[UITabBarController alloc] init];
-    self.tabBarController.viewControllers = @[navControl, viewController2];
+    self.tabBarController.viewControllers = @[navControl, nav2Control];
     self.window.rootViewController = self.tabBarController;
     viewController1.managedObjectContext = self.managedObjectContext;
     viewController2.managedObjectContext = self.managedObjectContext;
@@ -128,7 +129,7 @@
     }
     
     NSURL *storeURL = [[NSBundle mainBundle] URLForResource:@"VTNutrition" withExtension:@"sqlite"];
-    
+    //NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"VTNutrition.sqlite"];
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
     if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:@{NSReadOnlyPersistentStoreOption:@YES, NSSQLiteAnalyzeOption:@YES} error:&error]) {

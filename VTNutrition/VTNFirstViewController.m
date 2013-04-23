@@ -11,7 +11,7 @@
 #import "DiningHall.h"
 #import "SubRestaraunt.h"
 #import "VTNWebViewController.h"
-
+#import "DailyFoodList.h"
 
 @interface VTNFirstViewController ()
 
@@ -214,6 +214,7 @@
             case 2:
                 food = [[self fetchedResultsController] objectAtIndexPath:indexPath];
                 [self.detailViewController setFood:food];
+                [self.detailViewController setFoodList:[self.foodListController fetchedObjects][0]];
                 [self.navigationController pushViewController:self.detailViewController animated:YES];
                 break;
             default:
@@ -437,5 +438,42 @@
     {
         cell.detailTextLabel.text = [[object valueForKey:@"calories"] stringValue];
     }
+}
+
+#pragma mark - food list stuff
+- (NSFetchedResultsController*) foodListController
+{
+    if (_foodListController != nil) {
+        return _foodListController;
+    }
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    // Edit the entity name as appropriate.
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"DailyFoodList" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    // Set the batch size to a suitable number.
+    [fetchRequest setFetchBatchSize:20];
+    
+    // Edit the sort key as appropriate.
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"totalCalories" ascending:NO];
+    NSArray *sortDescriptors = @[sortDescriptor];
+    
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    // Edit the section name key path and cache name if appropriate.
+    // nil for section name key path means "no sections".
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"FoodListCache"];
+    aFetchedResultsController.delegate = self;
+    
+    [aFetchedResultsController performFetch:nil];
+    DailyFoodList *foodList;
+    if ([[aFetchedResultsController fetchedObjects] count] == 0)
+    {
+        foodList = [NSEntityDescription insertNewObjectForEntityForName:@"DailyFoodList" inManagedObjectContext:self.managedObjectContext];
+        [aFetchedResultsController performFetch:nil];
+    }
+    _foodListController = aFetchedResultsController;
+    return aFetchedResultsController;
 }
 @end

@@ -8,6 +8,7 @@
 
 #import "VTNWebViewController.h"
 #import "Food.h"
+#import "DailyFoodList.h"
 
 @interface VTNWebViewController ()
 
@@ -43,6 +44,8 @@
 }
 
 - (IBAction)addToDaily:(UIButton *)sender {
+
+    [self.foodList addFoodsObject:self.food];
 }
 
 - (void)setFood:(Food *)food
@@ -50,4 +53,6 @@
     _food = food;
     self.url = [NSURL URLWithString:self.food.url];
 }
+
+
 @end

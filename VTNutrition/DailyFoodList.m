@@ -12,7 +12,20 @@
 
 @implementation DailyFoodList
 
-@dynamic totalCalories;
 @dynamic foods;
+@dynamic totalCalories;
+
+- (NSNumber*)totalCalories
+{
+    NSUInteger cal = 0;
+    
+    for (Food* food in self.foods)
+    {
+        cal += [food.calories unsignedIntegerValue];
+    }
+    register NSNumber* result = [NSNumber numberWithUnsignedInteger:cal];
+    [super setValue:result forKey:@"totalCalories"];
+    return result;
+}
 
 @end
