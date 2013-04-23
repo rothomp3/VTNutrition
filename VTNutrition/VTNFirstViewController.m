@@ -471,6 +471,7 @@
     if ([[aFetchedResultsController fetchedObjects] count] == 0)
     {
         foodList = [NSEntityDescription insertNewObjectForEntityForName:@"DailyFoodList" inManagedObjectContext:self.managedObjectContext];
+        foodList.totalCalories = @0;
         [aFetchedResultsController performFetch:nil];
     }
     _foodListController = aFetchedResultsController;

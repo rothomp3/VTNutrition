@@ -13,7 +13,7 @@
 
 @interface DailyFoodList : NSManagedObject
 
-@property (nonatomic, retain, readonly) NSNumber * totalCalories;
+@property (nonatomic, retain) NSNumber * totalCalories;
 @property (nonatomic, retain) NSSet *foods;
 @end
 

@@ -45,6 +45,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.totalCaloriesLabel.text = [@0 stringValue];
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,6 +58,7 @@
 {
     [super viewWillAppear:animated];
     self.totalCaloriesLabel.text = [self.foodList.totalCalories stringValue];
+    [self.FoodListView reloadData];
 }
 
 - (IBAction)parseFile:(UIButton *)sender {
@@ -136,6 +138,7 @@
 - (NSFetchedResultsController *)fetchedResultsController
 {
     if (_fetchedResultsController != nil) {
+        [_fetchedResultsController performFetch:nil];
         return _fetchedResultsController;
     }
     
@@ -162,6 +165,7 @@
     if ([[aFetchedResultsController fetchedObjects] count] == 0)
     {
         _foodList = [NSEntityDescription insertNewObjectForEntityForName:@"DailyFoodList" inManagedObjectContext:self.managedObjectContext];
+        _foodList.totalCalories = @0;
     }
     else
         _foodList = [aFetchedResultsController fetchedObjects][0];
