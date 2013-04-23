@@ -14,8 +14,8 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>VTNutrition icon.png</string>
-				<string>VTNutrition icon@1x.png</string>
+				<string>VTNutritionLogo.png</string>
+				<string>VTNutritionLogoStandard.png</string>
 			</array>
 		</dict>
 	</dict>

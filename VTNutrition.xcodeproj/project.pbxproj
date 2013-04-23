@@ -36,6 +36,13 @@
 		E1C37D4117165B8500BE3D6D /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C37D4017165B8500BE3D6D /* Food.m */; };
 		E1C37D4417165B8500BE3D6D /* DailyFoodList.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C37D4317165B8500BE3D6D /* DailyFoodList.m */; };
 		E1C37D4717165E8F00BE3D6D /* VTNSStringParsingExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C37D4617165E8F00BE3D6D /* VTNSStringParsingExtensions.m */; };
+		E1EC86DC1727375300B04376 /* FoodTabIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E1EC86D61727375300B04376 /* FoodTabIcon.png */; };
+		E1EC86DD1727375300B04376 /* magnifying_glass.png in Resources */ = {isa = PBXBuildFile; fileRef = E1EC86D71727375300B04376 /* magnifying_glass.png */; };
+		E1EC86DE1727375300B04376 /* people_.png in Resources */ = {isa = PBXBuildFile; fileRef = E1EC86D81727375300B04376 /* people_.png */; };
+		E1EC86DF1727375300B04376 /* alarm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1EC86D91727375300B04376 /* alarm@2x.png */; };
+		E1EC86E31727376700B04376 /* VTNutritionLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = E1EC86E21727376700B04376 /* VTNutritionLogo.png */; };
+		E1EC86E51727377100B04376 /* VTNutritionLogoStandard.png in Resources */ = {isa = PBXBuildFile; fileRef = E1EC86E41727377100B04376 /* VTNutritionLogoStandard.png */; };
+		E1EC86E91727398900B04376 /* magnifying_glass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1EC86E81727398900B04376 /* magnifying_glass@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +87,13 @@
 		E1C37D4317165B8500BE3D6D /* DailyFoodList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyFoodList.m; sourceTree = "<group>"; };
 		E1C37D4517165E8F00BE3D6D /* VTNSStringParsingExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTNSStringParsingExtensions.h; sourceTree = "<group>"; };
 		E1C37D4617165E8F00BE3D6D /* VTNSStringParsingExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTNSStringParsingExtensions.m; sourceTree = "<group>"; };
+		E1EC86D61727375300B04376 /* FoodTabIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FoodTabIcon.png; sourceTree = "<group>"; };
+		E1EC86D71727375300B04376 /* magnifying_glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = magnifying_glass.png; sourceTree = "<group>"; };
+		E1EC86D81727375300B04376 /* people_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = people_.png; sourceTree = "<group>"; };
+		E1EC86D91727375300B04376 /* alarm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alarm@2x.png"; sourceTree = "<group>"; };
+		E1EC86E21727376700B04376 /* VTNutritionLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VTNutritionLogo.png; sourceTree = SOURCE_ROOT; };
+		E1EC86E41727377100B04376 /* VTNutritionLogoStandard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VTNutritionLogoStandard.png; sourceTree = SOURCE_ROOT; };
+		E1EC86E81727398900B04376 /* magnifying_glass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "magnifying_glass@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				E104E20E1727232D00D364E5 /* VTNutrition.sqlite */,
+				E1EC86E81727398900B04376 /* magnifying_glass@2x.png */,
 				E1C37D311716566800BE3D6D /* Nutrition.xcdatamodeld */,
 				E1C37D4217165B8500BE3D6D /* DailyFoodList.h */,
 				E1C37D4317165B8500BE3D6D /* DailyFoodList.m */,
@@ -155,6 +170,12 @@
 				E1ADA4E617038E7E00278BBF /* VTNFirstViewController.xib */,
 				E1ADA4E917038E7E00278BBF /* VTNSecondViewController.xib */,
 				E16FC3411705FF20004D3C6D /* VTNWebView.xib */,
+				E1EC86E41727377100B04376 /* VTNutritionLogoStandard.png */,
+				E1EC86E21727376700B04376 /* VTNutritionLogo.png */,
+				E1EC86D61727375300B04376 /* FoodTabIcon.png */,
+				E1EC86D71727375300B04376 /* magnifying_glass.png */,
+				E1EC86D81727375300B04376 /* people_.png */,
+				E1EC86D91727375300B04376 /* alarm@2x.png */,
 				E1ADA4C717038E7D00278BBF /* Supporting Files */,
 			);
 			path = VTNutrition;
@@ -242,6 +263,13 @@
 				E1905E4B171DC52400507DBB /* VTNutrition icon.png in Resources */,
 				E1905E4D171DC55B00507DBB /* VTNutrition icon@1x.png in Resources */,
 				E104E20F1727232D00D364E5 /* VTNutrition.sqlite in Resources */,
+				E1EC86DC1727375300B04376 /* FoodTabIcon.png in Resources */,
+				E1EC86DD1727375300B04376 /* magnifying_glass.png in Resources */,
+				E1EC86DE1727375300B04376 /* people_.png in Resources */,
+				E1EC86DF1727375300B04376 /* alarm@2x.png in Resources */,
+				E1EC86E31727376700B04376 /* VTNutritionLogo.png in Resources */,
+				E1EC86E51727377100B04376 /* VTNutritionLogoStandard.png in Resources */,
+				E1EC86E91727398900B04376 /* magnifying_glass@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
