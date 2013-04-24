@@ -14,7 +14,6 @@
 
 @dynamic foods;
 @dynamic totalCalories;
-/*
 - (NSNumber*)totalCalories
 {
     NSUInteger cal = 0;
@@ -26,6 +25,6 @@
     register NSNumber* result = [NSNumber numberWithUnsignedInteger:cal];
     [super setValue:result forKey:@"totalCalories"];
     return result;
-}*/
+}
 
 @end

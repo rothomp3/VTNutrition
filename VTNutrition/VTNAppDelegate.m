@@ -128,11 +128,18 @@
         return _persistentStoreCoordinator;
     }
     
-    NSURL *storeURL = [[NSBundle mainBundle] URLForResource:@"VTNutrition" withExtension:@"sqlite"];
-    //NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"VTNutrition.sqlite"];
+    //NSURL *storeURL = [[NSBundle mainBundle] URLForResource:@"VTNutrition" withExtension:@"sqlite"];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"VTNutrition.sqlite"];
+    BOOL storeExists = [[NSFileManager defaultManager] fileExistsAtPath:[storeURL path]];
+    if (!storeExists)
+    {
+        NSError *error = nil;
+        if (![[NSFileManager defaultManager] copyItemAtPath:[[[NSBundle mainBundle] URLForResource:@"VTNutrition" withExtension:@"sqlite"] path] toPath:[storeURL path] error:&error])
+            NSLog(@"Error description %@ \n", [error localizedDescription]);
+    }
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:@{NSReadOnlyPersistentStoreOption:@YES, NSSQLiteAnalyzeOption:@YES} error:&error]) {
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
         /*
          Replace this implementation with code to handle the error appropriately.
          

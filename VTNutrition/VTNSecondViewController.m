@@ -37,6 +37,10 @@
     if (self) {
         self.title = NSLocalizedString(@"My Activity", @"My Activity");
         self.tabBarItem.image = [UIImage imageNamed:@"alarm"];
+        
+        UIBarButtonItem* clearItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(clearList)];
+        [[self navigationItem] setRightBarButtonItem:clearItem];
+        self.totalCaloriesLabel.text = @"0";
     }
     return self;
 }
@@ -44,21 +48,39 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.fetchedResultsController performFetch:nil];
+
 	// Do any additional setup after loading the view, typically from a nib.
-    self.totalCaloriesLabel.text = [@0 stringValue];
+    NSString* caloriesString = [self.foodList.totalCalories stringValue];
+    if (!caloriesString)
+        self.totalCaloriesLabel.text = @"0";
+    else
+        self.totalCaloriesLabel.text = caloriesString;
 }
+
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    [self.managedObjectContext save:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.totalCaloriesLabel.text = [self.foodList.totalCalories stringValue];
+    NSString* caloriesString = [self.foodList.totalCalories stringValue];
+    if (!caloriesString)
+        self.totalCaloriesLabel.text = @"0";
+    else
+        self.totalCaloriesLabel.text = caloriesString;
     [self.FoodListView reloadData];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.managedObjectContext save:nil];
 }
 
 - (IBAction)parseFile:(UIButton *)sender {
@@ -180,7 +202,7 @@
     [fetchRequest setEntity:entity];
     NSPredicate* predicate = [NSPredicate predicateWithFormat:@"foodList == %@", self.foodList];
     [fetchRequest setPredicate:predicate];
-    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:@"subRestaraunt.diningHall" cacheName:@"dailyFoodCache"];
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"dailyFoodCache"];
     
 	NSError *error = nil;
 	if (![self.fetchedResultsController performFetch:&error]) {
@@ -336,6 +358,15 @@
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [[object valueForKey:@"name"] description];
     cell.detailTextLabel.text = [[object valueForKey:@"calories"] stringValue];
+}
+
+#pragma mark - list clearing
+- (void)clearList
+{
+    [self.foodList removeFoods:self.foodList.foods];
+    [self.FoodListView reloadData];
+    self.totalCaloriesLabel.text = @"0";
+    [self.managedObjectContext save:nil];
 }
 
 @end

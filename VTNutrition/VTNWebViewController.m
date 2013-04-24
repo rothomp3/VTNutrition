@@ -46,7 +46,7 @@
 - (IBAction)addToDaily:(UIButton *)sender {
 
     [self.foodList addFoodsObject:self.food];
-    self.foodList.totalCalories = [NSNumber numberWithUnsignedInteger:([self.foodList.totalCalories unsignedIntegerValue] + [self.food.calories unsignedIntegerValue])];
+    //self.foodList.totalCalories = [NSNumber numberWithUnsignedInteger:([self.foodList.totalCalories unsignedIntegerValue] + [self.food.calories unsignedIntegerValue])];
 }
 
 - (void)setFood:(Food *)food

@@ -64,6 +64,7 @@
 {
     [super viewDidDisappear:animated];
     [self.foodTable deselectRowAtIndexPath:[self.foodTable indexPathForSelectedRow] animated:NO];
+    [self.managedObjectContext save:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -233,11 +234,11 @@
 {
     if (tableView == self.foodTable)
     {
-        NSArray* indexTitles = [self.fetchedResultsController sectionIndexTitles];
+        NSArray* indexTitles = [self.fetchedResultsController sections];
         if ([indexTitles count] < section + 1)
             return @"";
         else
-            return indexTitles[section];
+            return [indexTitles[section] valueForKey:@"name"];
     }
     else
     {
