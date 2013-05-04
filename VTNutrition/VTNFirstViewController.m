@@ -189,15 +189,35 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (!self.detailViewController) {
-        self.detailViewController = [[VTNWebViewController alloc] initWithNibName:@"VTNWebView" bundle:nil];
-    }
     if (tableView == self.foodTable)
     {
         VTNFirstViewController* fvc;
         Food* food;
+        DiningHall* selectedDiningHall;
+        
         switch (self.currentLevel) {
             case 0:
+                selectedDiningHall = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+                if(([selectedDiningHall.subRestaraunts count] == 1))
+                {
+                    if ([((SubRestaraunt*)(selectedDiningHall.subRestaraunts.anyObject)).foods count] == 1)
+                    {
+                        self.detailViewController.food = [((SubRestaraunt*)(selectedDiningHall.subRestaraunts.anyObject)).foods anyObject];
+                        [self.navigationController pushViewController:self.detailViewController animated:YES];
+                        break;
+                    }
+                    else
+                    {
+                        fvc = [[VTNFirstViewController alloc] init];
+                        fvc.managedObjectContext = self.managedObjectContext;
+                        fvc.currentLevel = self.currentLevel + 2;
+                        fvc.diningHall = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+                        fvc.subRest = [fvc.diningHall.subRestaraunts anyObject];
+                        [self.navigationController pushViewController:fvc animated:YES];
+                        break;
+
+                    }
+                }
                 fvc = [[VTNFirstViewController alloc] init];
                 fvc.managedObjectContext = self.managedObjectContext;
                 fvc.currentLevel = self.currentLevel + 1;
@@ -215,7 +235,6 @@
             case 2:
                 food = [[self fetchedResultsController] objectAtIndexPath:indexPath];
                 [self.detailViewController setFood:food];
-                [self.detailViewController setFoodList:[self.foodListController fetchedObjects][0]];
                 [self.navigationController pushViewController:self.detailViewController animated:YES];
                 break;
             default:
@@ -477,5 +496,15 @@
     }
     _foodListController = aFetchedResultsController;
     return aFetchedResultsController;
+}
+
+- (VTNWebViewController* )detailViewController
+{
+    if (!_detailViewController) {
+        _detailViewController = [[VTNWebViewController alloc] initWithNibName:@"VTNWebView" bundle:nil];
+        [_detailViewController setFoodList:[self.foodListController fetchedObjects][0]];
+    }
+    
+    return _detailViewController;
 }
 @end
