@@ -47,7 +47,7 @@
         default:
             break;
     }
-    [self.searchDisplayController setValue:[NSNumber numberWithInt:UITableViewStyleGrouped] forKey:@"_searchResultsTableViewStyle"];
+    [self.searchDisplayController setValue:@(UITableViewStyleGrouped) forKey:@"_searchResultsTableViewStyle"];
     [self.foodTable setEditing:NO];
 }
 
@@ -299,7 +299,7 @@
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
-    [self filterContentForSearchText:searchString scope:[[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+    [self filterContentForSearchText:searchString scope:[self.searchDisplayController.searchBar scopeButtonTitles][[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
     
     return YES;
 }

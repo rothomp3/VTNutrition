@@ -124,7 +124,7 @@
                 }
                 FoodHolder* temp = [[FoodHolder alloc] init];
                 temp.name = name;
-                temp.calories = [NSNumber numberWithInt:calories];
+                temp.calories = @(calories);
                 temp.url = i[3];
                 temp.subRestaraunt = newSubRest;
                 [self insertNewObject:temp];

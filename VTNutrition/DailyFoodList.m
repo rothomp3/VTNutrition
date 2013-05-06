@@ -22,7 +22,7 @@
     {
         cal += [food.calories unsignedIntegerValue];
     }
-    register NSNumber* result = [NSNumber numberWithUnsignedInteger:cal];
+    register NSNumber* result = @(cal);
     [super setValue:result forKey:@"totalCalories"];
     return result;
 }
