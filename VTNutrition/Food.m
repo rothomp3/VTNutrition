@@ -17,6 +17,6 @@
 @dynamic calories;
 @dynamic url;
 @dynamic subRestaraunt;
-@dynamic foodLists;
+@dynamic foodList;
 
 @end

@@ -194,7 +194,7 @@
         VTNFirstViewController* fvc;
         Food* food;
         DiningHall* selectedDiningHall;
-        
+        SubRestaraunt* selectedSubRest;
         switch (self.currentLevel) {
             case 0:
                 selectedDiningHall = [[self fetchedResultsController] objectAtIndexPath:indexPath];
@@ -225,6 +225,13 @@
                 [self.navigationController pushViewController:fvc animated:YES];
                 break;
             case 1:
+                selectedSubRest = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+                if ([selectedSubRest.foods count] == 1)
+                {
+                    self.detailViewController.food = [selectedSubRest.foods anyObject];
+                    [self.navigationController pushViewController:self.detailViewController animated:YES];
+                    break;
+                }
                 fvc = [[VTNFirstViewController alloc] init];
                 fvc.currentLevel = self.currentLevel + 1;
                 fvc.managedObjectContext = self.managedObjectContext;
@@ -502,6 +509,7 @@
 {
     if (!_detailViewController) {
         _detailViewController = [[VTNWebViewController alloc] initWithNibName:@"VTNWebView" bundle:nil];
+        [self.foodListController performFetch:nil];
         [_detailViewController setFoodList:[self.foodListController fetchedObjects][0]];
     }
     

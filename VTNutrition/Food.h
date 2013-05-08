@@ -17,14 +17,6 @@
 @property (nonatomic, retain) NSNumber * calories;
 @property (nonatomic, retain) NSString * url;
 @property (nonatomic, retain) SubRestaraunt *subRestaraunt;
-@property (nonatomic, retain) NSSet *foodLists;
+@property (nonatomic, retain) DailyFoodList *foodList;
 @end
 
-@interface Food (CoreDataGeneratedAccessors)
-
-- (void)addFoodListsObject:(DailyFoodList *)value;
-- (void)removeFoodListsObject:(DailyFoodList *)value;
-- (void)addFoodLists:(NSSet *)values;
-- (void)removeFoodLists:(NSSet *)values;
-
-@end
