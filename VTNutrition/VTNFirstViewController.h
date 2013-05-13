@@ -11,6 +11,7 @@
 @class DiningHall;
 @class SubRestaraunt;
 @class VTNWebViewController;
+@class Food;
 @interface VTNFirstViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UISearchDisplayDelegate, UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *foodTable;
 
@@ -29,4 +30,7 @@
 @property (strong, nonatomic) NSString* oldTitle;
 
 @property (strong, nonatomic) NSFetchedResultsController* foodListController;
+@property (strong, nonatomic) NSPredicate* searchPredicate;
+- (void)addFoodToList:(Food*)food;
+
 @end

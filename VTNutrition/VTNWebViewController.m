@@ -9,6 +9,7 @@
 #import "VTNWebViewController.h"
 #import "Food.h"
 #import "DailyFoodList.h"
+#import "VTNFirstViewController.h"
 
 @interface VTNWebViewController ()
 
@@ -48,6 +49,8 @@
     //[self.foodList addFoodsObject:self.food];
     self.food.foodList = self.foodList;
     //self.foodList.totalCalories = [NSNumber numberWithUnsignedInteger:([self.foodList.totalCalories unsignedIntegerValue] + [self.food.calories unsignedIntegerValue])];
+    //NSArray* navControllers = self.navigationController.viewControllers;
+    //[navControllers[[navControllers count] - 2] addFoodToList:self.food];
 }
 
 - (void)setFood:(Food *)food

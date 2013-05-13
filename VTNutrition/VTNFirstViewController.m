@@ -51,6 +51,14 @@
     [self.foodTable setEditing:NO];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    //_fetchedResultsController = nil;
+    _searchResultsController = nil;
+    //_foodListController = nil;
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -71,6 +79,12 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.searchResultsController performFetch:nil];
 }
 
 - (void)insertNewObject:(id)sender
@@ -94,6 +108,30 @@
 }
 
 #pragma mark - Table View
+- (void)addFoodToList:(Food*)food
+{
+    NSFetchedResultsController* oldController = _fetchedResultsController;
+    _fetchedResultsController = nil;
+    int oldLevel = _currentLevel;
+    _currentLevel = 2;
+    SubRestaraunt* oldSubRest = _subRest;
+    _subRest = food.subRestaraunt;
+    DiningHall* oldHall = _diningHall;
+    _diningHall = self.subRest.diningHall;
+    NSArray* foods = [self.fetchedResultsController fetchedObjects];
+    for (Food* theFood in foods)
+    {
+        if ([theFood.name isEqualToString:food.name] && [theFood.calories isEqualToNumber:food.calories])
+            food = theFood;
+    }
+    [self.foodListController performFetch:nil];
+    [food setFoodList:[self.foodListController fetchedObjects][0]];
+    _fetchedResultsController = nil;
+    _fetchedResultsController = oldController;
+    _currentLevel = oldLevel;
+    _subRest = oldSubRest;
+    _diningHall = oldHall;
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -203,6 +241,7 @@
                     if ([((SubRestaraunt*)(selectedDiningHall.subRestaraunts.anyObject)).foods count] == 1)
                     {
                         self.detailViewController.food = [((SubRestaraunt*)(selectedDiningHall.subRestaraunts.anyObject)).foods anyObject];
+                        self.detailViewController.indexPath = indexPath;
                         [self.navigationController pushViewController:self.detailViewController animated:YES];
                         break;
                     }
@@ -229,6 +268,7 @@
                 if ([selectedSubRest.foods count] == 1)
                 {
                     self.detailViewController.food = [selectedSubRest.foods anyObject];
+                    self.detailViewController.indexPath = indexPath;
                     [self.navigationController pushViewController:self.detailViewController animated:YES];
                     break;
                 }
@@ -242,6 +282,7 @@
             case 2:
                 food = [[self fetchedResultsController] objectAtIndexPath:indexPath];
                 [self.detailViewController setFood:food];
+                self.detailViewController.indexPath = indexPath;
                 [self.navigationController pushViewController:self.detailViewController animated:YES];
                 break;
             default:
@@ -251,6 +292,7 @@
     else
     {
         self.detailViewController.food = [self.searchResultsController objectAtIndexPath:indexPath];
+        self.detailViewController.indexPath = indexPath;
         self.navigationItem.title = @"Search Results";
         [self.navigationController pushViewController:self.detailViewController animated:YES];
     }
@@ -288,6 +330,24 @@
         default:
             break;
     }
+    _searchPredicate = fetchPredicate;
+    
+
+    [self.searchResultsController performFetch:nil];
+}
+
+- (NSFetchedResultsController*)searchResultsController
+{
+    if (_searchResultsController && ([_searchResultsController.fetchRequest.predicate isEqual:self.searchPredicate]))
+        return  _searchResultsController;
+    
+    _searchResultsController = nil;
+    
+    if (self.searchPredicate == nil)
+        return nil;
+    
+    NSPredicate* fetchPredicate = self.searchPredicate;
+    
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     [fetchRequest setPredicate:fetchPredicate];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Food" inManagedObjectContext:self.managedObjectContext];
@@ -299,9 +359,10 @@
     NSArray *sortDescriptors = @[diningHallSort, subRestSort, sortDescriptor, caloriesSort];
     [fetchRequest setSortDescriptors:sortDescriptors];
     [NSFetchedResultsController deleteCacheWithName:@"searchCache"];
-    self.searchResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:@"subRestaraunt.diningHall.name" cacheName:@"searchCache"];
-    self.searchResultsController.delegate = self;
-    [self.searchResultsController performFetch:nil];
+    _searchResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:@"subRestaraunt.diningHall.name" cacheName:@"searchCache"];
+    _searchResultsController.delegate = self;
+    
+    return _searchResultsController;
 }
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString

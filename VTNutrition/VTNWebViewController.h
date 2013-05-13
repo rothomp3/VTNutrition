@@ -18,5 +18,6 @@
 @property (strong, nonatomic) NSURL* url;
 @property (strong, nonatomic) Food* food;
 @property (strong, nonatomic) DailyFoodList* foodList;
+@property (strong, nonatomic) NSIndexPath* indexPath;
 - (IBAction)addToDaily:(UIButton *)sender;
 @end
